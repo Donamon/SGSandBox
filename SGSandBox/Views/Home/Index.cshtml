@@ -1,0 +1,56 @@
+﻿@using SGSandbox.Models
+@*@model SGSandbox.Models.AssortmentCollection*@
+
+@{
+    Layout = null;
+    AssortmentCollection assortments = ViewBag.Assortments;
+    CustomerCollection customers = ViewBag.Customers;
+    MainChainCollection mainchains = ViewBag.MainChains;
+}
+
+<h2>Assortments</h2>
+@foreach (var assortment in assortments.Assortments)
+{
+    <div>
+        <div>Nummer: @assortment.AssortmentId</div>
+        <div>Fradato: @assortment.CampaignMarkFromDate </div>
+    </div>
+}
+
+
+<hr/>
+
+<h2>Customers</h2>
+@foreach (var customer in customers.Customers)
+{
+    <div>
+        <div>Nummer: @customer.AccountNum</div>
+        <div>Fradato: @customer.Name</div>
+        <div>Sortiment:</div>
+        <ol>
+            @foreach (var sortiment in customer.Assortment)
+            {
+                <li>@sortiment</li>
+            }
+        </ol>
+
+        <div>Lisens:</div>
+        <ol>
+            @foreach (var licenseCode in customer.LicenseCode)
+            {
+                <li>@licenseCode</li>
+            }
+        </ol>
+    </div>
+}
+
+<hr/>
+
+<h2>Main chains</h2>
+@foreach (var mainchain in mainchains.MainChains)
+{
+    <div>
+        <div>Id: @mainchain.MainChainId</div>
+        <div>Beskrivelse: @mainchain.Description</div>
+    </div>
+}

@@ -1,0 +1,14 @@
+﻿@model List<SGSandbox.Controllers.PriceObject>
+
+@{
+    Layout = null;
+}
+
+<h2>Her kommer det no verdier ifra web service mock</h2>
+
+@foreach (var priceobject in Model)
+{
+    <div>
+        Pris: @priceobject.ItemPrice
+    </div>
+}
