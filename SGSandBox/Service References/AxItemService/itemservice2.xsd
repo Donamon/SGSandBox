@@ -1,0 +1,2342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://schemas.microsoft.com/dynamics/2008/01/documents/Item" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2008/01/documents/Item" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Item" type="AxdItem" />
+  <xs:complexType name="AxdItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocPurpose" nillable="true" type="AxdEnum_XMLDocPurpose" />
+      <xs:element minOccurs="0" name="SenderId" nillable="true" type="AxdExtType_dataAreaId" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventTable" type="AxdEntity_InventTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AxdEnum_XMLDocPurpose">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Formål:Formål</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Original" />
+      <xs:enumeration value="Duplicate" />
+      <xs:enumeration value="Proforma" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_dataAreaId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Firma:ID for et dataområde</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_AxdEntityAction">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">AxdEntityAction:AxdEntityAction</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="create" />
+      <xs:enumeration value="update" />
+      <xs:enumeration value="replace" />
+      <xs:enumeration value="delete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdEntity_InventTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_DocumentHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ABCContributionMargin" nillable="true" type="AxdEnum_ABC" />
+      <xs:element minOccurs="0" name="ABCRevenue" nillable="true" type="AxdEnum_ABC" />
+      <xs:element minOccurs="0" name="ABCTieUp" nillable="true" type="AxdEnum_ABC" />
+      <xs:element minOccurs="0" name="ABCValue" nillable="true" type="AxdEnum_ABC" />
+      <xs:element minOccurs="0" name="AltConfigId" nillable="true" type="AxdExtType_ConfigIdAlternative" />
+      <xs:element minOccurs="0" name="AltInventColorId" nillable="true" type="AxdExtType_InventColorId" />
+      <xs:element minOccurs="0" name="AltInventSizeId" nillable="true" type="AxdExtType_InventSizeId" />
+      <xs:element minOccurs="0" name="AltItemId" nillable="true" type="AxdExtType_ItemIdAlternative" />
+      <xs:element minOccurs="0" name="AutoReportFinished" nillable="true" type="AxdExtType_ItemAutoReportFinished" />
+      <xs:element minOccurs="0" name="BatchNumGroupId" nillable="true" type="AxdExtType_InventNumGroupId" />
+      <xs:element minOccurs="0" name="BOMCalcGroupId" nillable="true" type="AxdExtType_BOMCalcGroupId" />
+      <xs:element minOccurs="0" name="BOMLevel" nillable="true" type="AxdExtType_ItemBOMLevel" />
+      <xs:element minOccurs="0" name="BOMManualReceipt" nillable="true" type="AxdExtType_ItemBOMManualReceipt" />
+      <xs:element minOccurs="0" name="BOMUnitId" nillable="true" type="AxdExtType_BOMUnitId" />
+      <xs:element minOccurs="0" name="CommissionGroupId" nillable="true" type="AxdExtType_CommissItemGroup" />
+      <xs:element minOccurs="0" name="ConfigSimilar" nillable="true" type="AxdExtType_ItemConfigSimilar" />
+      <xs:element minOccurs="0" name="Configurable" nillable="true" type="AxdExtType_ItemConfigurable" />
+      <xs:element minOccurs="0" name="CostGroupId" nillable="true" type="AxdExtType_CostGroupIdDirectMaterial" />
+      <xs:element minOccurs="0" name="CostModel" nillable="true" type="AxdExtType_ItemCostModel" />
+      <xs:element minOccurs="0" name="Density" nillable="true" type="AxdExtType_BOMMeasureDensity" />
+      <xs:element minOccurs="0" name="Depth" nillable="true" type="AxdExtType_BOMMeasureDepth" />
+      <xs:element minOccurs="0" name="Dimension" nillable="true" type="AxdArray_AxdExtType_Dimension" />
+      <xs:element minOccurs="1" name="DimGroupId" type="AxdExtType_InventDimGroupId" />
+      <xs:element minOccurs="0" name="EO_ActiveCalcNo" nillable="true" type="AxdExtType_EO_ActiveCalcNo" />
+      <xs:element minOccurs="0" name="EO_AssortmentOnly" nillable="true" type="AxdExtType_EO_AssortmentOnly" />
+      <xs:element minOccurs="0" name="EO_BlockPurchOrder" nillable="true" type="AxdExtType_EO_BlockPurchOrder" />
+      <xs:element minOccurs="0" name="EO_BonusCode" nillable="true" type="AxdExtType_EO_BonusCodeId" />
+      <xs:element minOccurs="0" name="EO_CalcGroupId" nillable="true" type="AxdExtType_EO_CalcGroupId" />
+      <xs:element minOccurs="0" name="EO_CalcMarkup" nillable="true" type="AxdExtType_EO_CalcMarkup" />
+      <xs:element minOccurs="0" name="EO_CalcUnit" nillable="true" type="AxdUnion_AxdExtType_EO_CalcUnit_AxdType_ExtCodeValue" />
+      <xs:element minOccurs="0" name="EO_DrawingNumber" nillable="true" type="AxdExtType_EO_DrawingNumber" />
+      <xs:element minOccurs="0" name="EO_ExpiryDaysConsumer" nillable="true" type="AxdExtType_EO_ExpiryDaysConsumer" />
+      <xs:element minOccurs="0" name="EO_ExpiryDaysTotal" nillable="true" type="AxdExtType_EO_ExpiryDaysTotal" />
+      <xs:element minOccurs="0" name="EO_ExpiryDaysWholeSale" nillable="true" type="AxdExtType_EO_ExpiryDaysWholeSale" />
+      <xs:element minOccurs="0" name="EO_ExternalItemId" nillable="true" type="AxdExtType_EO_MainExternalItemId" />
+      <xs:element minOccurs="0" name="EO_ForecastBase" nillable="true" type="AxdEnum_EO_ForecastBase" />
+      <xs:element minOccurs="0" name="EO_GetItem" nillable="true" type="AxdExtType_EO_GetItem" />
+      <xs:element minOccurs="0" name="EO_ImportDate" nillable="true" type="AxdExtType_EO_ImportDate" />
+      <xs:element minOccurs="0" name="EO_ItemCategory" nillable="true" type="AxdExtType_EO_ItemCategory" />
+      <xs:element minOccurs="0" name="EO_ItemIdForecast" nillable="true" type="AxdUnion_AxdExtType_EO_ItemIdForecast_AxdType_ExtCodeValue" />
+      <xs:element minOccurs="0" name="EO_LastCalcDate" nillable="true" type="AxdExtType_EO_LastCalcDate" />
+      <xs:element minOccurs="0" name="EO_LicenceCode" nillable="true" type="AxdExtType_EO_LicenceCodeId" />
+      <xs:element minOccurs="0" name="EO_LicenceTypeId" nillable="true" type="AxdExtType_EO_LicenceTypeId" />
+      <xs:element minOccurs="0" name="EO_LocalItem" nillable="true" type="AxdExtType_EO_LocalItem" />
+      <xs:element minOccurs="0" name="EO_MainPrimaryVendor" nillable="true" type="AxdExtType_EO_MainPrimaryVendorId" />
+      <xs:element minOccurs="0" name="EO_MiscItem" nillable="true" type="AxdExtType_EO_MiscItem" />
+      <xs:element minOccurs="0" name="EO_ModifiedDate" nillable="true" type="xs:date" />
+      <xs:element minOccurs="0" name="EO_ModifiedDate_InventTables" nillable="true" type="AxdExtType_EO_ModifiedDate_InventTables" />
+      <xs:element minOccurs="0" name="EO_ModifiedDate_ItemGroupId" nillable="true" type="AxdExtType_EO_ModifiedDate_ItemGroupId" />
+      <xs:element minOccurs="0" name="EO_ModifiedDate_PrimaryVendorId" nillable="true" type="AxdExtType_EO_ModifiedDate_PrimaryVendorId" />
+      <xs:element minOccurs="0" name="EO_ModifiedDate_StatusCode" nillable="true" type="AxdExtType_EO_ModifiedDate_StatusCode" />
+      <xs:element minOccurs="0" name="EO_NameAlias" nillable="true" type="AxdExtType_EO_NameAlias" />
+      <xs:element minOccurs="0" name="EO_netCommerce" nillable="true" type="AxdExtType_EO_NetCommerce" />
+      <xs:element minOccurs="0" name="EO_NewChanged" nillable="true" type="AxdEnum_EO_NewChanged" />
+      <xs:element minOccurs="0" name="EO_NoBreakage" nillable="true" type="AxdExtType_EO_NoBreakage" />
+      <xs:element minOccurs="0" name="EO_NumOnLocation" nillable="true" type="AxdExtType_EO_NumOnLocation" />
+      <xs:element minOccurs="0" name="EO_PassiveItem" nillable="true" type="AxdExtType_EO_PassiveItem" />
+      <xs:element minOccurs="0" name="EO_pcUNSPSCcode" nillable="true" type="AxdExtType_EO_pcUNSPSCcode" />
+      <xs:element minOccurs="0" name="EO_Producer" nillable="true" type="AxdExtType_EO_ProducerId" />
+      <xs:element minOccurs="0" name="EO_ProductionBlocked" nillable="true" type="AxdExtType_EO_ProductionBlocked" />
+      <xs:element minOccurs="0" name="EO_ProductLevel" nillable="true" type="AxdArray_AxdExtType_EO_ProductLevelId" />
+      <xs:element minOccurs="0" name="EO_ProductLevels" nillable="true" type="AxdArray_AxdExtType_EO_ProductLevelId" />
+      <xs:element minOccurs="0" name="EO_ProfitAmount" nillable="true" type="AxdExtType_EO_ProfitAmount" />
+      <xs:element minOccurs="0" name="EO_ProvidableItem" nillable="true" type="AxdExtType_EO_ProvidableItem" />
+      <xs:element minOccurs="0" name="EO_QtyInPackage" nillable="true" type="AxdExtType_EO_QtyInPackage" />
+      <xs:element minOccurs="0" name="EO_ReasonCodeId" nillable="true" type="AxdExtType_EO_ReasonCodeId" />
+      <xs:element minOccurs="0" name="EO_ReasonCodeIdLocal" nillable="true" type="AxdExtType_EO_ReasonCodeIdLocal" />
+      <xs:element minOccurs="0" name="EO_RecallCode" nillable="true" type="AxdExtType_EO_RecallCode" />
+      <xs:element minOccurs="0" name="EO_RegistrationUnit" nillable="true" type="AxdExtType_EO_RegistrationUnitId" />
+      <xs:element minOccurs="0" name="EO_Rest" nillable="true" type="AxdExtType_EO_Rest" />
+      <xs:element minOccurs="0" name="EO_ServiceGroupId" nillable="true" type="AxdExtType_EO_ServiceGroupId" />
+      <xs:element minOccurs="0" name="EO_SkipLotControlCode" nillable="true" type="AxdExtType_EO_SkipLotControlCode" />
+      <xs:element minOccurs="0" name="EO_StatusCode" nillable="true" type="AxdExtType_EO_InventStatusCodeId" />
+      <xs:element minOccurs="0" name="EO_Storage" nillable="true" type="AxdExtType_EO_Storage" />
+      <xs:element minOccurs="0" name="EO_TransferDate" nillable="true" type="AxdExtType_EO_TransferDate" />
+      <xs:element minOccurs="0" name="EO_TvinnCustomsTariffNum" nillable="true" type="AxdExtType_EO_TvinnCustomsTariffNum" />
+      <xs:element minOccurs="0" name="EO_TvinnDocumentDesc" nillable="true" type="AxdExtType_EO_TvinnDocumentDesc" />
+      <xs:element minOccurs="0" name="EO_TvinnDocumentMrk" nillable="true" type="AxdExtType_EO_TvinnDocumentMrk" />
+      <xs:element minOccurs="0" name="EO_TvinnDocumentNum" nillable="true" type="AxdExtType_EO_TvinnDocumentNum" />
+      <xs:element minOccurs="0" name="EO_TvinnProcedureCode" nillable="true" type="AxdExtType_EO_TvinnProcedureCode" />
+      <xs:element minOccurs="0" name="EO_UpdateVer" nillable="true" type="AxdExtType_Integer" />
+      <xs:element minOccurs="0" name="EO_WMSCommission" nillable="true" type="AxdExtType_EO_WMSCommission" />
+      <xs:element minOccurs="0" name="EO_WMSCompanyItemOwnerId" nillable="true" type="AxdExtType_EO_WMSCompanyItemOwnerId" />
+      <xs:element minOccurs="0" name="EO_WMSLiftItem" nillable="true" type="AxdExtType_EO_WMSLiftItem" />
+      <xs:element minOccurs="0" name="EO_WMSLocationType" nillable="true" type="AxdExtType_EO_WMSLocationType" />
+      <xs:element minOccurs="0" name="EO_WMSQtyFPak" nillable="true" type="AxdExtType_EO_WMSQtyFPak" />
+      <xs:element minOccurs="0" name="EO_WMSSerialNumber" nillable="true" type="AxdExtType_EO_WMSSerialNumber" />
+      <xs:element minOccurs="0" name="EO_WMSTotLiftLocations" nillable="true" type="AxdExtType_EO_WMSTotLiftLocations" />
+      <xs:element minOccurs="0" name="EPCManager" nillable="true" type="AxdExtType_EPCManager" />
+      <xs:element minOccurs="0" name="grossDepth" nillable="true" type="AxdExtType_InventDepth" />
+      <xs:element minOccurs="0" name="grossHeight" nillable="true" type="AxdExtType_InventHeight" />
+      <xs:element minOccurs="0" name="grossWidth" nillable="true" type="AxdExtType_InventWidth" />
+      <xs:element minOccurs="0" name="Height" nillable="true" type="AxdExtType_BOMMeasureHeight" />
+      <xs:element minOccurs="0" name="Intracode" nillable="true" type="AxdExtType_IntrastatItemCodeId" />
+      <xs:element minOccurs="0" name="IntraUnit" nillable="true" type="AxdExtType_IntrastatConvert" />
+      <xs:element minOccurs="0" name="ItemBuyerGroupId" nillable="true" type="AxdExtType_ItemBuyerGroupId" />
+      <xs:element minOccurs="0" name="ItemDimCombinationAutoCreate" nillable="true" type="AxdExtType_ItemDimCombinationAutoCreate" />
+      <xs:element minOccurs="0" name="ItemDimCostPrice" nillable="true" type="AxdExtType_ItemDimCostPrice" />
+      <xs:element minOccurs="1" name="ItemGroupId" type="AxdExtType_ItemGroupId" />
+      <xs:element minOccurs="0" name="ItemId" nillable="true" type="AxdExtType_ItemId" />
+      <xs:element minOccurs="0" name="ItemIdCompany" nillable="true" type="AxdExtType_ItemIdCompany" />
+      <xs:element minOccurs="0" name="ItemName" nillable="true" type="AxdExtType_ItemName" />
+      <xs:element minOccurs="0" name="ItemPriceToleranceGroupId" nillable="true" type="AxdExtType_ItemPriceToleranceGroupId" />
+      <xs:element minOccurs="0" name="ItemTaggingLevel" nillable="true" type="AxdEnum_RFIDItemTaggingLevel" />
+      <xs:element minOccurs="0" name="ItemType" nillable="true" type="AxdEnum_ItemType" />
+      <xs:element minOccurs="1" name="ModelGroupId" type="AxdExtType_InventModelGroupId" />
+      <xs:element minOccurs="0" name="ModifiedDateTime" nillable="true" type="AxdType_DateTime" />
+      <xs:element minOccurs="0" name="NameAlias" nillable="true" type="AxdExtType_ItemNameAlias" />
+      <xs:element minOccurs="0" name="NetWeight" nillable="true" type="AxdExtType_ItemNetWeight" />
+      <xs:element minOccurs="0" name="OrigCountryRegionId" nillable="true" type="AxdExtType_ItemOrigCountryRegionId" />
+      <xs:element minOccurs="0" name="OrigStateId" nillable="true" type="AxdExtType_ItemOrigStateId" />
+      <xs:element minOccurs="0" name="PackagingGroupId" nillable="true" type="AxdExtType_ItemPackagingGroupId" />
+      <xs:element minOccurs="0" name="PalletTagging" nillable="true" type="AxdExtType_RFIDPalletTagging" />
+      <xs:element minOccurs="0" name="PBAItemAutoGenerated" nillable="true" type="AxdExtType_PBAItemAutoGenerated" />
+      <xs:element minOccurs="0" name="Phantom" nillable="true" type="AxdExtType_ItemPhantom" />
+      <xs:element minOccurs="0" name="PrimaryVendorId" nillable="true" type="AxdExtType_ItemPrimaryVendId" />
+      <xs:element minOccurs="0" name="ProdFlushingPrincip" nillable="true" type="AxdEnum_ProdFlushingPrincipItem" />
+      <xs:element minOccurs="0" name="ProdGroupId" nillable="true" type="AxdExtType_ItemProdGroupId" />
+      <xs:element minOccurs="0" name="ProdPoolId" nillable="true" type="AxdExtType_ItemProdPoolId" />
+      <xs:element minOccurs="0" name="projCategoryId" nillable="true" type="AxdExtType_ProjCategoryId" />
+      <xs:element minOccurs="0" name="PurchModel" nillable="true" type="AxdExtType_ItemPurchModel" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="ReqGroupId" nillable="true" type="AxdExtType_ReqGroupId" />
+      <xs:element minOccurs="0" name="SalesContributionRatio" nillable="true" type="AxdExtType_ItemSalesContributionRatio" />
+      <xs:element minOccurs="0" name="SalesModel" nillable="true" type="AxdExtType_ItemSalesModel" />
+      <xs:element minOccurs="0" name="SalesPercentMarkup" nillable="true" type="AxdExtType_ItemSalesPercentMarkup" />
+      <xs:element minOccurs="0" name="SalesPriceModelBasic" nillable="true" type="AxdEnum_SalesPriceModelBasic" />
+      <xs:element minOccurs="0" name="ScrapConst" nillable="true" type="AxdExtType_ScrapConst" />
+      <xs:element minOccurs="0" name="ScrapVar" nillable="true" type="AxdExtType_ScrapVar" />
+      <xs:element minOccurs="0" name="SerialNumGroupId" nillable="true" type="AxdExtType_InventNumGroupId" />
+      <xs:element minOccurs="0" name="sortCode" nillable="true" type="AxdExtType_WMSSortCode" />
+      <xs:element minOccurs="0" name="StandardConfigId" nillable="true" type="AxdExtType_ConfigIdStandard" />
+      <xs:element minOccurs="0" name="StandardInventColorId" nillable="true" type="AxdExtType_InventColorId" />
+      <xs:element minOccurs="0" name="StandardInventSizeId" nillable="true" type="AxdExtType_InventSizeId" />
+      <xs:element minOccurs="0" name="StatisticsFactor" nillable="true" type="AxdExtType_IntrastatMarkupPct" />
+      <xs:element minOccurs="0" name="StopExplode" nillable="true" type="AxdExtType_ItemStopExplode" />
+      <xs:element minOccurs="0" name="TaraWeight" nillable="true" type="AxdExtType_ItemTaraWeight" />
+      <xs:element minOccurs="0" name="TaxPackagingQty" nillable="true" type="AxdExtType_TaxPackagingQty" />
+      <xs:element minOccurs="0" name="UnitVolume" nillable="true" type="AxdExtType_ItemVolume" />
+      <xs:element minOccurs="0" name="UseAltItemId" nillable="true" type="AxdExtType_ItemUseAlternative" />
+      <xs:element minOccurs="0" name="Width" nillable="true" type="AxdExtType_BOMMeasureWidth" />
+      <xs:element minOccurs="0" name="WMSArrivalHandlingTime" nillable="true" type="AxdExtType_WMSArrivalHandlingTime" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Sales" type="AxdEntity_Sales" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Purch" type="AxdEntity_Purch" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Invent" type="AxdEntity_Invent" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventItemLocation" type="AxdEntity_InventItemLocation" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventTxt" type="AxdEntity_InventTxt" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventTableDocuRef" type="AxdEntity_InventTableDocuRef" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventItemSalesSetup" type="AxdEntity_InventItemSalesSetup" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventItemPurchSetup" type="AxdEntity_InventItemPurchSetup" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventItemInventSetup" type="AxdEntity_InventItemInventSetup" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:simpleType name="AxdEnum_ABC">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kategori:Kategori</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="A" />
+      <xs:enumeration value="B" />
+      <xs:enumeration value="C" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ConfigIdAlternative">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Konfigurasjon:Alternativ konfigurasjon brukes i ordreregistrering.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventColorId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Farge:Identifikasjon av varefarge.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventSizeId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Størrelse:Identifikasjon av varestørrelse.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemIdAlternative">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Alternativt varenummer:Alternativt lagernummer brukes for ordreregistrering.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemAutoReportFinished">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Automatisk ferdigmelding:Aktiver automatisk ferdigmelding ved transaksjoner for varen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventNumGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Nummergruppe:Identifikasjon av nummergruppe</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_BOMCalcGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Beregningsgruppe:Identifikasjon av beregningsgruppen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemBOMLevel">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Nivå:Beregnet stykklistenivå ved siste behovsberegning</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdType_Integer">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="-2147483648" />
+      <xs:maxInclusive value="2147483647" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemBOMManualReceipt">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Ankomst:Skal materialfortjeneste for denne varen ved en produksjon angis manuelt?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_BOMUnitId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Enhet:Forbruksenhet i stykkliste</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_CommissItemGroup">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Provisjonsvaregruppe:Identifikasjon av provisjonsvaregruppe</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemConfigSimilar">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Identisk:Tillat identiske konfigurasjoner med forskjellig spesifikasjon</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemConfigurable">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kan konfigureres:Konfigurere varen etter valg?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_CostGroupIdDirectMaterial">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kostgruppe:Identifikasjon av kostgruppen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemCostModel">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Siste kostpris:Oppdatere varen automatisk med siste kostpris?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_BOMMeasureDensity">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tetthet:Omregningsfaktor for måling av tetthetsdimensjonen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdType_Decimal">
+    <xs:restriction base="xs:decimal" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_BOMMeasureDepth">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Dybde:Omregningsfaktor for måling av dybdedimensjonen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdArray_AxdExtType_Dimension">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Avdeling:Avdelingsnummer.
+Kostsenter:Kostsenternummer.
+Formål:Formålets nummer.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="3" maxOccurs="3" name="element" type="AxdExtType_Dimension" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AxdExtType_Dimension">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO" />
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventDimGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Dimensjonsgruppe:Identifikasjon av lagerdimensjonsgruppe</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ActiveCalcNo">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Gjeldende kalkyle:Tekst</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_AssortmentOnly">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kun ved sortiment:Varen kan kun selges til kunder som har den i sitt sortiment.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_BlockPurchOrder">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Sperr bestilling:Sperr registrering av bestilling</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_BonusCodeId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Bonuskode:Velg riktig alternativ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Rewarding" />
+      <xs:enumeration value="Accumulated" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_CalcGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kalkylegruppe:Kalkylegruppe Id nummer</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_CalcMarkup">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kalkylepåslag:Beløp i standardvaluta.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdType_ExtCodeValue">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Verdi:Gjeldende verdi av den relaterte posten i henhold til den valgte eksterne kodetypen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdUnion_AxdExtType_EO_CalcUnit_AxdType_ExtCodeValue">
+    <xs:union memberTypes="AxdExtType_EO_CalcUnit AxdType_ExtCodeValue" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_CalcUnit">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kalkyleenhet:Enhetsidentifikasjon.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_DrawingNumber">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tegningsnummer:Tekst</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ExpiryDaysConsumer">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Holdbarhet forbruker i dager:Heltall.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ExpiryDaysTotal">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Total holdbarhet i dager:Heltall.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ExpiryDaysWholeSale">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Holdbarhet grossist i dager:Heltall.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_MainExternalItemId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Lev. varenr:Eksternt varenummer for hovedleverandøren</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_EO_ForecastBase">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Prognose basert på:Prognose basert på</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ItemId" />
+      <xs:enumeration value="Sum" />
+      <xs:enumeration value="OldItemId" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_GetItem">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Skaff (IKKE I BRUK):Kryss av for å aktivisere verdien.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ImportDate">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Importdato:Transaksjonsdato.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ItemCategory">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Varekategori:Velg varekategori</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdUnion_AxdExtType_EO_ItemIdForecast_AxdType_ExtCodeValue">
+    <xs:union memberTypes="AxdExtType_EO_ItemIdForecast AxdType_ExtCodeValue" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ItemIdForecast">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Gammel vare:Identifiser vare.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_LastCalcDate">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Siste Kalkyledato:Transaksjonsdato.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_LicenceCodeId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Lisenskode:Tekst</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_LicenceTypeId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Lisenstype:Velg riktig alternativ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Customs" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_LocalItem">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Prising:Angir prissetting av vare</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Local" />
+      <xs:enumeration value="Central" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_MainPrimaryVendorId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Hovedleverandør:Hovedleverandør</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_MiscItem">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Diversevare:Varer som ikke lagerstyres</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdType_DateTime">
+    <xs:simpleContent>
+      <xs:extension base="xs:dateTime">
+        <xs:attribute name="localDateTime" type="xs:dateTime" />
+        <xs:attribute name="timezone" type="AxdEnum_Timezone" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="AxdEnum_Timezone">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">:</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GMTMINUS1200INTERNATIONALDATELINEWEST" />
+      <xs:enumeration value="GMTMINUS1100MIDWAYISLAND_SAMOA" />
+      <xs:enumeration value="GMTMINUS1000HAWAII" />
+      <xs:enumeration value="GMTMINUS0900ALASKA" />
+      <xs:enumeration value="GMTMINUS0800PACIFICTIME" />
+      <xs:enumeration value="GMTMINUS0800TIJUANA_BAJACALIFORNIA" />
+      <xs:enumeration value="GMTMINUS0700ARIZONA" />
+      <xs:enumeration value="GMTMINUS0700MOUNTAINTIME" />
+      <xs:enumeration value="GMTMINUS0700CHIHUAHUA_LAPAZ_MAZATLAN" />
+      <xs:enumeration value="GMTMINUS0600CENTRALAMERICA" />
+      <xs:enumeration value="GMTMINUS0600CENTRALTIME" />
+      <xs:enumeration value="GMTMINUS0600GUADALAJARA_MEXICOCITY" />
+      <xs:enumeration value="GMTMINUS0600SASKATCHEWAN" />
+      <xs:enumeration value="GMTMINUS0500BOGOTA_LIMA_QUITO_RIOBRANCO" />
+      <xs:enumeration value="GMTMINUS0500EASTERNTIME" />
+      <xs:enumeration value="GMTMINUS0500INDIANA" />
+      <xs:enumeration value="GMTMINUS0400ATLANTICTIME" />
+      <xs:enumeration value="GMTMINUS0400LAPAZ" />
+      <xs:enumeration value="GMTMINUS0400MANAUS" />
+      <xs:enumeration value="GMTMINUS0400SANTIAGO" />
+      <xs:enumeration value="GMTMINUS0430CARACAS" />
+      <xs:enumeration value="GMTMINUS0330NEWFOUNDLAND" />
+      <xs:enumeration value="GMTMINUS0300BRASILIA" />
+      <xs:enumeration value="GMTMINUS0300BUENOSAIRES_GEORGETOWN" />
+      <xs:enumeration value="GMTMINUS0300GREENLAND" />
+      <xs:enumeration value="GMTMINUS0300MONTEVIDEO" />
+      <xs:enumeration value="GMTMINUS0200MIDATLANTIC" />
+      <xs:enumeration value="GMTMINUS0100AZORES" />
+      <xs:enumeration value="GMTMINUS0100CAPEVERDIS" />
+      <xs:enumeration value="GMT_CASABLANCA_MONTROVIA_REYKJAVIK" />
+      <xs:enumeration value="GMT_DUBLIN_EDINBURGH_LISBON_LONDON" />
+      <xs:enumeration value="GMTPLUS0100_AMSTERDAM_BERLIN_BERN_ROME" />
+      <xs:enumeration value="GMTPLUS0100BELGRADE_BRATISLAVA_BUDAPEST" />
+      <xs:enumeration value="GMTPLUS0100BRUSSELS_COPENHAGEN_MADRID" />
+      <xs:enumeration value="GMTPLUS0100SARAJEVO_SKOPJE_WARSAW_ZAGREB" />
+      <xs:enumeration value="GMTPLUS0100WESTCENTRALAFRICA" />
+      <xs:enumeration value="GMTPLUS0200AMMAN" />
+      <xs:enumeration value="GMTPLUS0200ATHENS_BUCHAREST_ISTANBUL" />
+      <xs:enumeration value="GMTPLUS0200BEIRUT" />
+      <xs:enumeration value="GMTPLUS0200MINSK" />
+      <xs:enumeration value="GMTPLUS0200CAIRO" />
+      <xs:enumeration value="GMTPLUS0200HARARE_PRETORIA" />
+      <xs:enumeration value="GMTPLUS0200HELSINKI_KYIV_RIGA_VILNIUS" />
+      <xs:enumeration value="GMTPLUS0200JERUSALEM" />
+      <xs:enumeration value="GMTPLUS0200WINDHOEK" />
+      <xs:enumeration value="GMTPLUS0300BAGHDAD" />
+      <xs:enumeration value="GMTPLUS0300KUWAIT_RIYADH" />
+      <xs:enumeration value="GMTPLUS0300MOSCOW_STPETERSBURG_VOLGOGRAD" />
+      <xs:enumeration value="GMTPLUS0300NAIROBI" />
+      <xs:enumeration value="GMTPLUS0300TBILISI" />
+      <xs:enumeration value="GMTPLUS0330TEHRAN" />
+      <xs:enumeration value="GMTPLUS0400ABUDHABI_MUSCAT" />
+      <xs:enumeration value="GMTPLUS0400BAKU" />
+      <xs:enumeration value="GMTPLUS0400CAUCASUSSTANDARDTIME" />
+      <xs:enumeration value="GMTPLUS0400YEREVAN" />
+      <xs:enumeration value="GMTPLUS0430KABUL" />
+      <xs:enumeration value="GMTPLUS0500EKATERINBURG" />
+      <xs:enumeration value="GMTPLUS0500ISLAMABAD_KARACHI_TASHKENT" />
+      <xs:enumeration value="GMTPLUS0530CHENNAI_KOLKATA_MUMBAI" />
+      <xs:enumeration value="GMTPLUS0530SRIJAYAWARDENEPURA" />
+      <xs:enumeration value="GMTPLUS0545KATHMANDU" />
+      <xs:enumeration value="GMTPLUS0600ALMATY_NOVOSIBIRSK" />
+      <xs:enumeration value="GMTPLUS0600ASTANA_DHAKA" />
+      <xs:enumeration value="GMTPLUS0630_YANGON" />
+      <xs:enumeration value="GMTPLUS0700_BANGKOK_HANOI_JAKARTA" />
+      <xs:enumeration value="GMTPLUS0700KRASNOYARSK" />
+      <xs:enumeration value="GMTPLUS0800BEIJING_CHONGQING_HONGKONG" />
+      <xs:enumeration value="GMTPLUS0800IRKUTSK_ULAANBATAAR" />
+      <xs:enumeration value="GMTPLUS0800KUALALUMPUR_SINGAPORE" />
+      <xs:enumeration value="GMTPLUS0800PERTH" />
+      <xs:enumeration value="GMTPLUS0800TAIPEI" />
+      <xs:enumeration value="GMTPLUS0900OSAKA_SAPPORO_TOKYO" />
+      <xs:enumeration value="GMTPLUS0900SEOUL" />
+      <xs:enumeration value="GMTPLUS0900YAKUTSK" />
+      <xs:enumeration value="GMTPLUS0930ADELAIDE" />
+      <xs:enumeration value="GMTPLUS0930DARWIN" />
+      <xs:enumeration value="GMTPLUS1000BRISBANE" />
+      <xs:enumeration value="GMTPLUS1000CANBERRA_MELBOURNE_SYDNEY" />
+      <xs:enumeration value="GMTPLUS1000GUAM_PORTMORESBY" />
+      <xs:enumeration value="GMTPLUS1000HOBART" />
+      <xs:enumeration value="GMTPLUS1000VLADIVOSTOK" />
+      <xs:enumeration value="GMTPLUS1100MAGADAN_SOLOMONIS" />
+      <xs:enumeration value="GMTPLUS1200AUCKLAND_WELLINGTON" />
+      <xs:enumeration value="GMTPLUS1200FIJI_KAMCHATKA_MARSHALLIS" />
+      <xs:enumeration value="GMTPLUS1300NUKU_ALOFA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdExtType_EO_ModifiedDate_InventTables">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Endringstidspunkt varetabeller:Siste endringstidpunkt varetabeller</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="AxdType_DateTime" />
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="AxdExtType_EO_ModifiedDate_ItemGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Endringsdato varegruppe:Transaksjonsdato.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ModifiedDate_PrimaryVendorId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Endringsdato hovedleverandør:Transaksjonsdato.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ModifiedDate_StatusCode">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Endringsdato status kode:Transaksjonsdato.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_NameAlias">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Registreringsmerknad:Registreringsmerknad</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="256" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_NetCommerce">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">NetCommerce:Kryss av for å aktivisere verdien.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_EO_NewChanged">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Importstatus:Importstatus</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NewItem" />
+      <xs:enumeration value="PassiveItem" />
+      <xs:enumeration value="ActiveItem" />
+      <xs:enumeration value="ChangeItem" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_NoBreakage">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Ikke anbrekk:Sperret for anbrekk av pakninger.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_NumOnLocation">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Antall enheter på lokasjon:Antall varer som kan være på en lokasjon</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_PassiveItem">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Inaktiv:Kryss av for å aktivisere verdien.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_pcUNSPSCcode">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">UNSPSC Kode:Tekst</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ProducerId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Produsent:Tekst</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ProductionBlocked">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Produksjon sperret:Kryss av for å aktivisere verdien.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdArray_AxdExtType_EO_ProductLevelId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Nivå 1:Gruppe-ID.
+Nivå 2:Gruppe-ID.
+Nivå 3:Gruppe-ID.
+Nivå 4:Gruppe-ID.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="4" maxOccurs="4" name="element" type="AxdExtType_EO_ProductLevelId" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AxdExtType_EO_ProductLevelId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO" />
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ProfitAmount">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Avanse i kroner:Standard inngående avanse i kroner</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ProvidableItem">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Skaffevare:Angir at varen ikke er på lager, må kjøpes inn først</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_QtyInPackage">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Antall i pakning:Antall i pakning</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ReasonCodeId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Årsakskode:Tekst</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ReasonCodeIdLocal">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Årsakskode lokalt:Firmaspesifikk årsakskode</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_RecallCode">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tilbakekalles:Kryss av for å aktivisere verdien.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_RegistrationUnitId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Registreringsenhet:Velg riktig alternativ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="FPack" />
+      <xs:enumeration value="DPack" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_Rest">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Rest tillatt:Kryss av for å aktivisere verdien.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ServiceGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Service gruppe:Tekst</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_SkipLotControlCode">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kontrollkode mottak:Tekst</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_InventStatusCodeId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Statuskode:Tekst</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_Storage">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Lagring:Lagringsalternativer</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_TransferDate">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Overført dato:Transaksjonsdato.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_TvinnCustomsTariffNum">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Toll tariffnummer:Varens toll tariffnummer som skal med på fortolling</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_TvinnDocumentDesc">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Beskrivelse:</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_TvinnDocumentMrk">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Identifisering:Identifisering av varen ved fortolling</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_TvinnDocumentNum">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Identifiseringsnummer:Innhold i identifisering av varen ved fortolling</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_TvinnProcedureCode">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Prosedyrekode:Prosedyrekode ved fortolling</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_Integer">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Heltall:Heltall.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_WMSCommission">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kommisjonsvare:Behandling kommisjonsvare</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_WMSCompanyItemOwnerId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Firma vareeier:Firma-ID er initialene til firmakontoene.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_WMSLiftItem">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Heisvare:Kryss av for å aktivisere verdien.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_WMSLocationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Lokasjonstype:Tekst</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_WMSQtyFPak">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Antall F-Pak i lokasjon:Reelt tall med standardformatering.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_WMSSerialNumber">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Serienummer i WMS:Kryss av for å aktivisere verdien.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_WMSTotLiftLocations">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Antall lokasjoner:Maksimalt antall lokasjoner i heis per vare</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EPCManager">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">EPC-behandling:EPC-behandling for varen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventDepth">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Dybde:Standarddybde</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventHeight">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Høyde:Standardhøyde</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventWidth">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Bredde:Standardbredde</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_BOMMeasureHeight">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Høyde:Omregningsfaktor for måling av høydedimensjonen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_IntrastatItemCodeId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Artikkelkode:Artikkelkode</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_IntrastatConvert">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tilleggsenheter:Antall tilleggsenheter per lagerenhet. Brukes for Intrastat.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemBuyerGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Innkjøpergruppe:Identifikasjon av kjøpergruppen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemDimCombinationAutoCreate">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Automatisk opprettelse: kombinasjoner:Automatisk opprettelse av alle nye kombinasjoner for varen når en ny varedimensjon er opprettet</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemDimCostPrice">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Bruk kombinasjonskostpris:Aktiver, bruk og styr kostpriser per varedimensjonskombinasjon.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Varegruppe:Identifikasjon av varegruppe</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Varenummer:Identifiser vare.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemIdCompany">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Firmavare:Identifiser vare.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemName">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Varenavn:Beskrivelse av varen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemPriceToleranceGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Pristoleransegruppe for vare:Identifisering av pristoleransegruppen for varen for leverandørfakturasamsvar</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_RFIDItemTaggingLevel">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Nivå av varebrikke:Nivå av varebrikke</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="ItemLevel" />
+      <xs:enumeration value="CaseLevel" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_ItemType">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Varetype:Varetype</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item" />
+      <xs:enumeration value="BOM" />
+      <xs:enumeration value="Service" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventModelGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Lagermodellgruppe:Identifikasjon av lagermodellgruppe</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemNameAlias">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Søkenavn:Hurtigsøkingsnavn som gjelder for varen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemNetWeight">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Nettovekt:Nettovekt av lagervare for en lagerenhet</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemOrigCountryRegionId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Land/område:Opprinnelsesland/-område for gjeldende vare</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemOrigStateId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Delstat:Opprinnelsesstat for gjeldende vare</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemPackagingGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Emballasjegruppe:Identifikasjon av emballasjegruppen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_RFIDPalletTagging">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Pallbrikke:Er pallbrikke obligatorisk?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_PBAItemAutoGenerated">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Automatisk generert:Generert vare</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemPhantom">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Fantom:Foreslå vare som fantomvare i stykklister?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemPrimaryVendId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Leverandør:Hovedleverandør ved bestillingsforslag</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_ProdFlushingPrincipItem">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Trekkprinsipp:Trekkprinsipp</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="Finish" />
+      <xs:enumeration value="Manual" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemProdGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Produksjonsgruppe:Produksjonsgruppe som foreslås ved opprettelse av produksjoner på varen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemProdPoolId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Produksjonspulje:Pulje som foreslås ved opprettelse av produksjoner for varen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ProjCategoryId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kategori:Kategori som brukes som standard.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemPurchModel">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Siste innkjøpspris:Oppdatere varen automatisk med siste innkjøpspris?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_recId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Post-ID:Unik ID for posten i databasen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Int64" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdType_Int64">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="-9223372036854775808" />
+      <xs:maxInclusive value="9223372036854775807" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_recVersion">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Postversjon:Versjon av posten i databasen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ReqGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Dekningsgruppe:Identifikasjon av dekningsgruppen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemSalesContributionRatio">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Dekningsgrad:Dekningsgrad som skal brukes til beregning av salgspris</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemSalesModel">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Salgsprismodell:Etter hvilken modell skal varens salgspris beregnes?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Contributionratio" />
+      <xs:enumeration value="PercentMarkup" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemSalesPercentMarkup">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tilleggsprosent:Tilleggsprosent som skal brukes ved beregning av salgspris</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_SalesPriceModelBasic">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Basispris:Basispris</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PurchPrice" />
+      <xs:enumeration value="CostPrice" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ScrapConst">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Konstant svinn:Konstant svinn i stykklisteenhet</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ScrapVar">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Variabelt svinn:Variabelsvinnprosent (må angis som prosent)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_WMSSortCode">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Sorteringskode:Sorteringsrekkefølge for lokasjoner.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ConfigIdStandard">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Standardkonfigurasjon:Konfigurasjon som foreslås ved varetransaksjoner</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_IntrastatMarkupPct">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tilleggsprosent:Tall angitt i prosent.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemStopExplode">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Stopp nedbryting:Skal nedbrytingen stoppe ved denne varen?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemTaraWeight">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Taravekt:Varens taravekt for en lagerenhet</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_TaxPackagingQty">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Emballasjeantall:Antall som emballasjeavgiften skal beregnes av. Antallet er angitt per lagerenhet.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemVolume">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Volum:Volum i kubikkmeter for en lagerenhet</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemUseAlternative">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Bruk alternativ:Når skal alternativt varenummer brukes?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Never" />
+      <xs:enumeration value="InventWhen0" />
+      <xs:enumeration value="Always" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_BOMMeasureWidth">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Bredde:Faktor for målingsdimensjonsbredden.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_WMSArrivalHandlingTime">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tid til ankomsthåndtering:Tiden som brukes til å ankomstoppdatere per lagerets standard ordreantall</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:time">
+      <xs:pattern value="^(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}(\.[0-9]+)?([\+\-](0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]))?$" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdEntity_Sales">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllocateMarkup" nillable="true" type="AxdExtType_PriceAllocateMarkup" />
+      <xs:element minOccurs="0" name="EndDisc" nillable="true" type="AxdEnum_NoYes" />
+      <xs:element minOccurs="0" name="EO_BreakAdditionAmount" nillable="true" type="AxdExtType_EO_BreakAdditionAmount" />
+      <xs:element minOccurs="0" name="EO_ModifiedDate_BreakAddition" nillable="true" type="AxdExtType_EO_ModifiedDate_BreakAddition" />
+      <xs:element minOccurs="0" name="EO_NoBreakage" nillable="true" type="AxdExtType_EO_NoBreakage" />
+      <xs:element minOccurs="0" name="EO_WholePackagePercent" nillable="true" type="AxdExtType_EO_WholePackagePercent" />
+      <xs:element minOccurs="0" name="InterCompanyBlocked" nillable="true" type="AxdExtType_InterCompanyBlocked" />
+      <xs:element minOccurs="1" name="ItemId" type="AxdExtType_ItemId" />
+      <xs:element minOccurs="0" name="LineDisc" nillable="true" type="AxdExtType_InventLineDiscCode" />
+      <xs:element minOccurs="0" name="Markup" nillable="true" type="AxdExtType_InventPriceMarkup" />
+      <xs:element minOccurs="0" name="MarkupGroupId" nillable="true" type="AxdExtType_InventMarkupGroupId" />
+      <xs:element minOccurs="0" name="ModuleType" nillable="true" type="AxdEnum_ModuleInventPurchSales" />
+      <xs:element minOccurs="0" name="MultiLineDisc" nillable="true" type="AxdExtType_InventMultiLineDiscCode" />
+      <xs:element minOccurs="0" name="OverDeliveryPct" nillable="true" type="AxdExtType_OverDeliveryPct" />
+      <xs:element minOccurs="0" name="PcsPrice" nillable="true" type="AxdExtType_Price" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="AxdExtType_Price" />
+      <xs:element minOccurs="0" name="PriceDate" nillable="true" type="AxdExtType_PriceDate" />
+      <xs:element minOccurs="0" name="PriceQty" nillable="true" type="AxdExtType_PriceQty" />
+      <xs:element minOccurs="0" name="PriceUnit" nillable="true" type="AxdExtType_PriceUnit" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="SuppItemGroupId" nillable="true" type="AxdExtType_InventSuppItemGroupId" />
+      <xs:element minOccurs="0" name="TaxItemGroupId" nillable="true" type="AxdExtType_TaxItemGroup" />
+      <xs:element minOccurs="0" name="UnderDeliveryPct" nillable="true" type="AxdExtType_UnderDeliveryPct" />
+      <xs:element minOccurs="0" name="UnitId" nillable="true" type="AxdExtType_UnitID" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:simpleType name="AxdExtType_PriceAllocateMarkup">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Inkl. i enhetspris:Ta med pristillegget i enhetsprisen til de forskjellige enhetene som er angitt i Prisantall-feltet ?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_NoYes">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">:</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_BreakAdditionAmount">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Anbrekkstillegg beløp:Angivelse av beløp som blir lagt til ved anbrekk.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_ModifiedDate_BreakAddition">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Endringsdato anbrekk:Transaksjonsdato.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_EO_WholePackagePercent">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Helkollirabatt %:Tall angitt i prosent.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InterCompanyBlocked">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Konsernintern stoppet:Konsernintern stoppet.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventLineDiscCode">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Linjerabatt:Unik identifikasjon av linjerabatt</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventPriceMarkup">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Pristillegg:Faste tillegg på pris, brukt en gang for hver faktura.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventMarkupGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tilleggsgruppe:Identifikasjon av tilleggsgruppe</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_ModuleInventPurchSales">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Modultype:Modultype</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Invent" />
+      <xs:enumeration value="Purch" />
+      <xs:enumeration value="Sales" />
+      <xs:enumeration value="DEL_SmmQuotation" />
+      <xs:enumeration value="DEL_Invent2" />
+      <xs:enumeration value="DEL_Invent3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventMultiLineDiscCode">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Samkjøpsrabattgruppe:Samkjøpsrabatt i beløp per prisenhet</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_OverDeliveryPct">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Overlevering:Akseptert overlevering i prosent</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_Price">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Pris:Antallsavhengig pris per enhet.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_PriceDate">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Prisdato:Dato som er knyttet til prisen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_PriceQty">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Prisantall:Antall som prisen og tillegget gjelder.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_PriceUnit">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Prisenhet:Antall enheter prisen er angitt i.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventSuppItemGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tilleggsvaregruppe:Angi tilleggsvaregruppen for varen i modulen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_TaxItemGroup">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Vare, mva-gruppe:Gruppe av mva-koder som kan beregnes for en vare.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_UnderDeliveryPct">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Underlevering:Akseptert underlevering i prosent</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_UnitID">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Enhet:Enhetsidentifikasjon.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdEntity_Purch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllocateMarkup" nillable="true" type="AxdExtType_PriceAllocateMarkup" />
+      <xs:element minOccurs="0" name="EndDisc" nillable="true" type="AxdEnum_NoYes" />
+      <xs:element minOccurs="0" name="EO_BreakAdditionAmount" nillable="true" type="AxdExtType_EO_BreakAdditionAmount" />
+      <xs:element minOccurs="0" name="EO_ModifiedDate_BreakAddition" nillable="true" type="AxdExtType_EO_ModifiedDate_BreakAddition" />
+      <xs:element minOccurs="0" name="EO_NoBreakage" nillable="true" type="AxdExtType_EO_NoBreakage" />
+      <xs:element minOccurs="0" name="EO_WholePackagePercent" nillable="true" type="AxdExtType_EO_WholePackagePercent" />
+      <xs:element minOccurs="0" name="InterCompanyBlocked" nillable="true" type="AxdExtType_InterCompanyBlocked" />
+      <xs:element minOccurs="1" name="ItemId" type="AxdExtType_ItemId" />
+      <xs:element minOccurs="0" name="LineDisc" nillable="true" type="AxdExtType_InventLineDiscCode" />
+      <xs:element minOccurs="0" name="Markup" nillable="true" type="AxdExtType_InventPriceMarkup" />
+      <xs:element minOccurs="0" name="MarkupGroupId" nillable="true" type="AxdExtType_InventMarkupGroupId" />
+      <xs:element minOccurs="0" name="ModuleType" nillable="true" type="AxdEnum_ModuleInventPurchSales" />
+      <xs:element minOccurs="0" name="MultiLineDisc" nillable="true" type="AxdExtType_InventMultiLineDiscCode" />
+      <xs:element minOccurs="0" name="OverDeliveryPct" nillable="true" type="AxdExtType_OverDeliveryPct" />
+      <xs:element minOccurs="0" name="PcsPrice" nillable="true" type="AxdExtType_Price" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="AxdExtType_Price" />
+      <xs:element minOccurs="0" name="PriceDate" nillable="true" type="AxdExtType_PriceDate" />
+      <xs:element minOccurs="0" name="PriceQty" nillable="true" type="AxdExtType_PriceQty" />
+      <xs:element minOccurs="0" name="PriceUnit" nillable="true" type="AxdExtType_PriceUnit" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="SuppItemGroupId" nillable="true" type="AxdExtType_InventSuppItemGroupId" />
+      <xs:element minOccurs="0" name="TaxItemGroupId" nillable="true" type="AxdExtType_TaxItemGroup" />
+      <xs:element minOccurs="0" name="UnderDeliveryPct" nillable="true" type="AxdExtType_UnderDeliveryPct" />
+      <xs:element minOccurs="0" name="UnitId" nillable="true" type="AxdExtType_UnitID" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:complexType name="AxdEntity_Invent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllocateMarkup" nillable="true" type="AxdExtType_PriceAllocateMarkup" />
+      <xs:element minOccurs="0" name="EndDisc" nillable="true" type="AxdEnum_NoYes" />
+      <xs:element minOccurs="0" name="EO_BreakAdditionAmount" nillable="true" type="AxdExtType_EO_BreakAdditionAmount" />
+      <xs:element minOccurs="0" name="EO_ModifiedDate_BreakAddition" nillable="true" type="AxdExtType_EO_ModifiedDate_BreakAddition" />
+      <xs:element minOccurs="0" name="EO_NoBreakage" nillable="true" type="AxdExtType_EO_NoBreakage" />
+      <xs:element minOccurs="0" name="EO_WholePackagePercent" nillable="true" type="AxdExtType_EO_WholePackagePercent" />
+      <xs:element minOccurs="0" name="InterCompanyBlocked" nillable="true" type="AxdExtType_InterCompanyBlocked" />
+      <xs:element minOccurs="1" name="ItemId" type="AxdExtType_ItemId" />
+      <xs:element minOccurs="0" name="LineDisc" nillable="true" type="AxdExtType_InventLineDiscCode" />
+      <xs:element minOccurs="0" name="Markup" nillable="true" type="AxdExtType_InventPriceMarkup" />
+      <xs:element minOccurs="0" name="MarkupGroupId" nillable="true" type="AxdExtType_InventMarkupGroupId" />
+      <xs:element minOccurs="0" name="ModuleType" nillable="true" type="AxdEnum_ModuleInventPurchSales" />
+      <xs:element minOccurs="0" name="MultiLineDisc" nillable="true" type="AxdExtType_InventMultiLineDiscCode" />
+      <xs:element minOccurs="0" name="OverDeliveryPct" nillable="true" type="AxdExtType_OverDeliveryPct" />
+      <xs:element minOccurs="0" name="PcsPrice" nillable="true" type="AxdExtType_Price" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="AxdExtType_Price" />
+      <xs:element minOccurs="0" name="PriceDate" nillable="true" type="AxdExtType_PriceDate" />
+      <xs:element minOccurs="0" name="PriceQty" nillable="true" type="AxdExtType_PriceQty" />
+      <xs:element minOccurs="0" name="PriceUnit" nillable="true" type="AxdExtType_PriceUnit" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="SuppItemGroupId" nillable="true" type="AxdExtType_InventSuppItemGroupId" />
+      <xs:element minOccurs="0" name="TaxItemGroupId" nillable="true" type="AxdExtType_TaxItemGroup" />
+      <xs:element minOccurs="0" name="UnderDeliveryPct" nillable="true" type="AxdExtType_UnderDeliveryPct" />
+      <xs:element minOccurs="0" name="UnitId" nillable="true" type="AxdExtType_UnitID" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:complexType name="AxdEntity_InventItemLocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountGroupId" nillable="true" type="AxdExtType_CountGroupId" />
+      <xs:element minOccurs="0" name="CountingJournalId" nillable="true" type="AxdExtType_InventJournalId_Counting" />
+      <xs:element minOccurs="0" name="CountingStarted" nillable="true" type="AxdExtType_InventCountingStarted" />
+      <xs:element minOccurs="0" name="inventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="1" name="ItemId" type="AxdExtType_ItemId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="WMSLocationIdDefaultIssue" nillable="true" type="AxdExtType_WMSLocationIdDefaultIssue" />
+      <xs:element minOccurs="0" name="WMSLocationIdDefaultReceipt" nillable="true" type="AxdExtType_WMSLocationIdDefaultReceipt" />
+      <xs:element minOccurs="0" name="wMSPickingLocation" nillable="true" type="AxdExtType_WMSPickingLocation" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventDim" type="AxdEntity_InventDim" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:simpleType name="AxdExtType_CountGroupId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Opptellingsgruppe:Identifikasjon av opptellingsgruppe</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventJournalId_Counting">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Opptellingsjournal:Journal som brukes til opptelling</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventCountingStarted">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Opptelling startet:Er opptellingen startet for lagerbeholdningen?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventDimId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Dimensjonsnr.:Identifikasjon av dimensjonene for varen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_WMSLocationIdDefaultIssue">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Standard avgangssted:Lokasjon som foreslås for lageravganger på salgsordrer, produksjonslinjer osv. når ingenting annet er angitt</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_WMSLocationIdDefaultReceipt">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Standard tilgangssted:Lokasjon som foreslås for lagertilganger av bestillinger, produksjoner osv. når ingenting annet er angitt</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_WMSPickingLocation">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Plukklokasjon:Lokasjon som varen behandles (plukkes) fra</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdEntity_InventDim">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="configId" nillable="true" type="AxdExtType_ConfigId" />
+      <xs:element minOccurs="0" name="InventBatchId" nillable="true" type="AxdExtType_InventBatchId" />
+      <xs:element minOccurs="0" name="InventColorId" nillable="true" type="AxdExtType_InventColorId" />
+      <xs:element minOccurs="0" name="inventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="InventLocationId" nillable="true" type="AxdExtType_InventLocationId" />
+      <xs:element minOccurs="0" name="inventSerialId" nillable="true" type="AxdExtType_InventSerialId" />
+      <xs:element minOccurs="0" name="InventSiteId" nillable="true" type="AxdExtType_InventSiteId" />
+      <xs:element minOccurs="0" name="InventSizeId" nillable="true" type="AxdExtType_InventSizeId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="wMSLocationId" nillable="true" type="AxdExtType_WMSLocationId" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:simpleType name="AxdExtType_ConfigId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Konfigurasjon:Identifikasjon av varens konfigurasjon.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventBatchId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Partinummer:Bunkedimensjon.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventLocationId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Lager:Identifiser lageret.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventSerialId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Serienummer:Serienummerdimensjon.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_InventSiteId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Site:Identifiser stedet</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_WMSLocationId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Lokasjon:Lokasjon på et lager.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdEntity_InventTxt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="ItemId" nillable="true" type="AxdUnion_AxdExtType_ItemId_AxdType_ExtCodeValue" />
+      <xs:element minOccurs="1" name="LanguageId" type="AxdExtType_LanguageId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="Txt" nillable="true" type="AxdExtType_ItemFreeTxt" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:simpleType name="AxdUnion_AxdExtType_ItemId_AxdType_ExtCodeValue">
+    <xs:union memberTypes="AxdExtType_ItemId AxdType_ExtCodeValue" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_LanguageId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Språk:Velg språk for gjeldende etikett.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="7" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemFreeTxt">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tekst:Standard varebeskrivelse.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="1000" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdEntity_InventTableDocuRef">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActualCompanyId" nillable="true" type="AxdExtType_selectableDataArea" />
+      <xs:element minOccurs="0" name="AuthorId" nillable="true" type="AxdExtType_smmDocuAuthorId" />
+      <xs:element minOccurs="0" name="ContactPersonId" nillable="true" type="AxdExtType_ContactPersonId" />
+      <xs:element minOccurs="0" name="EncyclopediaItemId" nillable="true" type="AxdExtType_smmEncyclopediaItemId" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="AxdExtType_Description" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="AxdExtType_Notes" />
+      <xs:element minOccurs="0" name="PartyId" nillable="true" type="AxdExtType_DirPartyId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="RefCompanyId" nillable="true" type="AxdExtType_selectableDataArea" />
+      <xs:element minOccurs="0" name="RefRecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RefTableId" nillable="true" type="AxdExtType_tableId" />
+      <xs:element minOccurs="0" name="Restriction" nillable="true" type="AxdEnum_DocuRestriction" />
+      <xs:element minOccurs="0" name="smmTable" nillable="true" type="AxdEnum_boolean" />
+      <xs:element minOccurs="0" name="TypeId" nillable="true" type="AxdExtType_DocuTypeId" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:simpleType name="AxdExtType_selectableDataArea">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Firma:ID for firmaet du kan velge</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_smmDocuAuthorId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Forfatter:Definerer dokumentets forfatter.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ContactPersonId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Kontakt-ID:Identifikasjon av kontakten.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_smmEncyclopediaItemId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Leksikonelement-ID:Unik leksikonelement-ID</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_Description">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Beskrivelse:Kort beskrivelse av transaksjonen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_Notes">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Merknad:Noter det-felt.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_DirPartyId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Adressebok-ID:Adressebokidentifikasjon</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_tableId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Tabell:ID for tabellen</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_DocuRestriction">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Begrensning:Begrensning</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Internal" />
+      <xs:enumeration value="External" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_boolean">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">:</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="false" />
+      <xs:enumeration value="true" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_DocuTypeId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Type:Identifikasjon av dokumenttypen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0" />
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdEntity_InventItemSalesSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ATPInclPlannedOrders" nillable="true" type="AxdExtType_SalesATPInclPlannedOrders" />
+      <xs:element minOccurs="0" name="ATPTimeFence" nillable="true" type="AxdExtType_SalesATPTimeFence" />
+      <xs:element minOccurs="0" name="DeliveryDateControlType" nillable="true" type="AxdEnum_SalesDeliveryDateControlType" />
+      <xs:element minOccurs="0" name="HighestQty" nillable="true" type="AxdExtType_QtyHighest" />
+      <xs:element minOccurs="0" name="InventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="InventDimIdDefault" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="1" name="ItemId" type="AxdUnion_AxdExtType_ItemId_AxdType_ExtCodeValue" />
+      <xs:element minOccurs="0" name="LeadTime" nillable="true" type="AxdExtType_LeadTimeSalesDefault" />
+      <xs:element minOccurs="0" name="LowestQty" nillable="true" type="AxdExtType_QtyLowest" />
+      <xs:element minOccurs="0" name="MandatoryInventLocation" nillable="true" type="AxdExtType_NoYesId" />
+      <xs:element minOccurs="0" name="MandatoryInventSite" nillable="true" type="AxdExtType_NoYesId" />
+      <xs:element minOccurs="0" name="MultipleQty" nillable="true" type="AxdExtType_QtyMultiples" />
+      <xs:element minOccurs="0" name="Override" nillable="true" type="AxdExtType_NoYesId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="StandardQty" nillable="true" type="AxdExtType_QtyStandard" />
+      <xs:element minOccurs="0" name="Stopped" nillable="true" type="AxdExtType_ItemStopped" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventDimSalesSetup" type="AxdEntity_InventDimSalesSetup" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DefaultInventDimSalesSetup" type="AxdEntity_DefaultInventDimSalesSetup" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:simpleType name="AxdExtType_SalesATPInclPlannedOrders">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">ATP inkl. planlagte bestillinger:Hvis dette er valgt, blir planlagte bestillinger tatt med i ATP-beregningen. Dette gjelder bare hvis leveringsdatokontrollen er angitt til ATP..</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="false" />
+      <xs:enumeration value="true" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_SalesATPTimeFence">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">ATP-horisont:Tidsperiode i dager, som går fremover fra i dag, for beregning av ATP. Dette gjelder bare hvis leveringsdatokontrollen er angitt til ATP.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdEnum_SalesDeliveryDateControlType">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Leveringsdatokontroll:Leveringsdatokontroll</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="SalesLeadTime" />
+      <xs:enumeration value="ATP" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_QtyHighest">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Maks. ordreantall:Maksimumsantall som gjelder for varetransaksjoner</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_LeadTimeSalesDefault">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Salgsleveringstid:Standard leveringstid eller leveringstid i antall dager</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_QtyLowest">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Minimumsordre:Minsteantall som gjelder for varetransaksjoner</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_NoYesId">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">:Kryss av for å aktivisere verdien.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_QtyMultiples">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Multippel:Faktorantall under pakking eller produksjon</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_QtyStandard">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Standard ordreantall:Standardordreantall som gjelder for varetransaksjoner</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Decimal">
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_ItemStopped">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Sperret:Er varen sperret for transaksjoner?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AxdEntity_InventDimSalesSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="configId" nillable="true" type="AxdExtType_ConfigId" />
+      <xs:element minOccurs="0" name="InventBatchId" nillable="true" type="AxdExtType_InventBatchId" />
+      <xs:element minOccurs="0" name="InventColorId" nillable="true" type="AxdExtType_InventColorId" />
+      <xs:element minOccurs="0" name="inventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="InventLocationId" nillable="true" type="AxdExtType_InventLocationId" />
+      <xs:element minOccurs="0" name="inventSerialId" nillable="true" type="AxdExtType_InventSerialId" />
+      <xs:element minOccurs="0" name="InventSiteId" nillable="true" type="AxdExtType_InventSiteId" />
+      <xs:element minOccurs="0" name="InventSizeId" nillable="true" type="AxdExtType_InventSizeId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="wMSLocationId" nillable="true" type="AxdExtType_WMSLocationId" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:complexType name="AxdEntity_DefaultInventDimSalesSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="configId" nillable="true" type="AxdExtType_ConfigId" />
+      <xs:element minOccurs="0" name="InventBatchId" nillable="true" type="AxdExtType_InventBatchId" />
+      <xs:element minOccurs="0" name="InventColorId" nillable="true" type="AxdExtType_InventColorId" />
+      <xs:element minOccurs="0" name="inventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="InventLocationId" nillable="true" type="AxdExtType_InventLocationId" />
+      <xs:element minOccurs="0" name="inventSerialId" nillable="true" type="AxdExtType_InventSerialId" />
+      <xs:element minOccurs="0" name="InventSiteId" nillable="true" type="AxdExtType_InventSiteId" />
+      <xs:element minOccurs="0" name="InventSizeId" nillable="true" type="AxdExtType_InventSizeId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="wMSLocationId" nillable="true" type="AxdExtType_WMSLocationId" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:complexType name="AxdEntity_InventItemPurchSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CalendarDays" nillable="true" type="AxdExtType_CalendarDays" />
+      <xs:element minOccurs="0" name="HighestQty" nillable="true" type="AxdExtType_QtyHighest" />
+      <xs:element minOccurs="0" name="InventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="InventDimIdDefault" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="1" name="ItemId" type="AxdUnion_AxdExtType_ItemId_AxdType_ExtCodeValue" />
+      <xs:element minOccurs="0" name="LeadTime" nillable="true" type="AxdExtType_LeadTimePurchDefault" />
+      <xs:element minOccurs="0" name="LowestQty" nillable="true" type="AxdExtType_QtyLowest" />
+      <xs:element minOccurs="0" name="MandatoryInventLocation" nillable="true" type="AxdExtType_NoYesId" />
+      <xs:element minOccurs="0" name="MandatoryInventSite" nillable="true" type="AxdExtType_NoYesId" />
+      <xs:element minOccurs="0" name="MultipleQty" nillable="true" type="AxdExtType_QtyMultiples" />
+      <xs:element minOccurs="0" name="Override" nillable="true" type="AxdExtType_NoYesId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="StandardQty" nillable="true" type="AxdExtType_QtyStandard" />
+      <xs:element minOccurs="0" name="Stopped" nillable="true" type="AxdExtType_ItemStopped" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventDimPurchSetup" type="AxdEntity_InventDimPurchSetup" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DefaultInventDimPurchSetup" type="AxdEntity_DefaultInventDimPurchSetup" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:simpleType name="AxdExtType_CalendarDays">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Virkedager:Er dager angitt i virkedagskalenderen?</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="No" />
+      <xs:enumeration value="Yes" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AxdExtType_LeadTimePurchDefault">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Leveringstid for innkjøp:Standard leveringstid eller leveringstid i antall dager</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:complexType name="AxdEntity_InventDimPurchSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="configId" nillable="true" type="AxdExtType_ConfigId" />
+      <xs:element minOccurs="0" name="InventBatchId" nillable="true" type="AxdExtType_InventBatchId" />
+      <xs:element minOccurs="0" name="InventColorId" nillable="true" type="AxdExtType_InventColorId" />
+      <xs:element minOccurs="0" name="inventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="InventLocationId" nillable="true" type="AxdExtType_InventLocationId" />
+      <xs:element minOccurs="0" name="inventSerialId" nillable="true" type="AxdExtType_InventSerialId" />
+      <xs:element minOccurs="0" name="InventSiteId" nillable="true" type="AxdExtType_InventSiteId" />
+      <xs:element minOccurs="0" name="InventSizeId" nillable="true" type="AxdExtType_InventSizeId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="wMSLocationId" nillable="true" type="AxdExtType_WMSLocationId" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:complexType name="AxdEntity_DefaultInventDimPurchSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="configId" nillable="true" type="AxdExtType_ConfigId" />
+      <xs:element minOccurs="0" name="InventBatchId" nillable="true" type="AxdExtType_InventBatchId" />
+      <xs:element minOccurs="0" name="InventColorId" nillable="true" type="AxdExtType_InventColorId" />
+      <xs:element minOccurs="0" name="inventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="InventLocationId" nillable="true" type="AxdExtType_InventLocationId" />
+      <xs:element minOccurs="0" name="inventSerialId" nillable="true" type="AxdExtType_InventSerialId" />
+      <xs:element minOccurs="0" name="InventSiteId" nillable="true" type="AxdExtType_InventSiteId" />
+      <xs:element minOccurs="0" name="InventSizeId" nillable="true" type="AxdExtType_InventSizeId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="wMSLocationId" nillable="true" type="AxdExtType_WMSLocationId" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:complexType name="AxdEntity_InventItemInventSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ATPInclPlannedOrders" nillable="true" type="AxdExtType_SalesATPInclPlannedOrders" />
+      <xs:element minOccurs="0" name="ATPTimeFence" nillable="true" type="AxdExtType_SalesATPTimeFence" />
+      <xs:element minOccurs="0" name="CalendarDays" nillable="true" type="AxdExtType_CalendarDays" />
+      <xs:element minOccurs="0" name="DeliveryDateControlType" nillable="true" type="AxdEnum_SalesDeliveryDateControlType" />
+      <xs:element minOccurs="0" name="HighestQty" nillable="true" type="AxdExtType_QtyHighest" />
+      <xs:element minOccurs="0" name="InventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="InventDimIdDefault" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="1" name="ItemId" type="AxdUnion_AxdExtType_ItemId_AxdType_ExtCodeValue" />
+      <xs:element minOccurs="0" name="LeadTime" nillable="true" type="AxdExtType_LeadTimeInventDefault" />
+      <xs:element minOccurs="0" name="LowestQty" nillable="true" type="AxdExtType_QtyLowest" />
+      <xs:element minOccurs="0" name="MandatoryInventLocation" nillable="true" type="AxdExtType_NoYesId" />
+      <xs:element minOccurs="0" name="MandatoryInventSite" nillable="true" type="AxdExtType_NoYesId" />
+      <xs:element minOccurs="0" name="MultipleQty" nillable="true" type="AxdExtType_QtyMultiples" />
+      <xs:element minOccurs="0" name="Override" nillable="true" type="AxdExtType_NoYesId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="StandardQty" nillable="true" type="AxdExtType_QtyStandard" />
+      <xs:element minOccurs="0" name="Stopped" nillable="true" type="AxdExtType_ItemStopped" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventDimInventSetup" type="AxdEntity_InventDimInventSetup" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DefaultInventDimInventSetup" type="AxdEntity_DefaultInventDimInventSetup" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:simpleType name="AxdExtType_LeadTimeInventDefault">
+    <xs:annotation>
+      <xs:documentation xml:lang="NB-NO">Leveringstid for lager:Standard leveringstid eller leveringstid i antall dager</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="AxdType_Integer" />
+  </xs:simpleType>
+  <xs:complexType name="AxdEntity_InventDimInventSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="configId" nillable="true" type="AxdExtType_ConfigId" />
+      <xs:element minOccurs="0" name="InventBatchId" nillable="true" type="AxdExtType_InventBatchId" />
+      <xs:element minOccurs="0" name="InventColorId" nillable="true" type="AxdExtType_InventColorId" />
+      <xs:element minOccurs="0" name="inventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="InventLocationId" nillable="true" type="AxdExtType_InventLocationId" />
+      <xs:element minOccurs="0" name="inventSerialId" nillable="true" type="AxdExtType_InventSerialId" />
+      <xs:element minOccurs="0" name="InventSiteId" nillable="true" type="AxdExtType_InventSiteId" />
+      <xs:element minOccurs="0" name="InventSizeId" nillable="true" type="AxdExtType_InventSizeId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="wMSLocationId" nillable="true" type="AxdExtType_WMSLocationId" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+  <xs:complexType name="AxdEntity_DefaultInventDimInventSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="configId" nillable="true" type="AxdExtType_ConfigId" />
+      <xs:element minOccurs="0" name="InventBatchId" nillable="true" type="AxdExtType_InventBatchId" />
+      <xs:element minOccurs="0" name="InventColorId" nillable="true" type="AxdExtType_InventColorId" />
+      <xs:element minOccurs="0" name="inventDimId" nillable="true" type="AxdExtType_InventDimId" />
+      <xs:element minOccurs="0" name="InventLocationId" nillable="true" type="AxdExtType_InventLocationId" />
+      <xs:element minOccurs="0" name="inventSerialId" nillable="true" type="AxdExtType_InventSerialId" />
+      <xs:element minOccurs="0" name="InventSiteId" nillable="true" type="AxdExtType_InventSiteId" />
+      <xs:element minOccurs="0" name="InventSizeId" nillable="true" type="AxdExtType_InventSizeId" />
+      <xs:element minOccurs="0" name="RecId" nillable="true" type="AxdExtType_recId" />
+      <xs:element minOccurs="0" name="RecVersion" nillable="true" type="AxdExtType_recVersion" />
+      <xs:element minOccurs="0" name="wMSLocationId" nillable="true" type="AxdExtType_WMSLocationId" />
+    </xs:sequence>
+    <xs:attribute fixed="entity" name="class" use="required" />
+    <xs:attribute name="action" type="AxdEnum_AxdEntityAction" />
+  </xs:complexType>
+</xs:schema>

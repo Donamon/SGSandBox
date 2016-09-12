@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using SGSandbox.Models;
+using SGSandbox.Models.Customer;
 
 namespace SGSandbox.Controllers
 {
@@ -28,6 +29,8 @@ namespace SGSandbox.Controllers
             ViewBag.Assortments = _assortmentCollection;
             ViewBag.Customers = _customerCollection;
             ViewBag.mainchains = _mainchainCollection;
+
+            DateTime test = new DateTime();
 
             return View();
         }

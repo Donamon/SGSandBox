@@ -6,8 +6,28 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace SGSandbox.Models
+namespace SGSandbox.Models.Customer
 {
+
+    public class Assortment
+    {
+
+        [JsonProperty("assortmentId")]
+        public string AssortmentId { get; set; }
+
+        [JsonProperty("validFrom")]
+        public string ValidFrom { get; set; }
+
+        [JsonProperty("validTo")]
+        public string ValidTo { get; set; }
+    }
+
+    public class LicenceCode
+    {
+
+        [JsonProperty("LicenseCode")]
+        public string LicenseCode { get; set; }
+    }
 
     public class Customer
     {
@@ -24,14 +44,8 @@ namespace SGSandbox.Models
         [JsonProperty("Phone")]
         public string Phone { get; set; }
 
-        [JsonProperty("Assortment")]
-        public string[] Assortment { get; set; }
-
-        [JsonProperty("LicenseCode")]
-        public string[] LicenseCode { get; set; }
-
-        [JsonProperty("Telefax")]
-        public string Telefax { get; set; }
+        [JsonProperty("TeleFax")]
+        public string TeleFax { get; set; }
 
         [JsonProperty("InvoiceAccount")]
         public string InvoiceAccount { get; set; }
@@ -78,8 +92,8 @@ namespace SGSandbox.Models
         [JsonProperty("EndDisc")]
         public string EndDisc { get; set; }
 
-        [JsonProperty("VatNum")]
-        public string VatNum { get; set; }
+        [JsonProperty("VATNum")]
+        public string VATNum { get; set; }
 
         [JsonProperty("CountryRegionId")]
         public string CountryRegionId { get; set; }
@@ -96,8 +110,8 @@ namespace SGSandbox.Models
         [JsonProperty("ZipCode")]
         public string ZipCode { get; set; }
 
-        [JsonProperty("Url")]
-        public string Url { get; set; }
+        [JsonProperty("URL")]
+        public string URL { get; set; }
 
         [JsonProperty("Email")]
         public string Email { get; set; }
@@ -141,8 +155,8 @@ namespace SGSandbox.Models
         [JsonProperty("Street")]
         public string Street { get; set; }
 
-        [JsonProperty("Sms")]
-        public string Sms { get; set; }
+        [JsonProperty("SMS")]
+        public string SMS { get; set; }
 
         [JsonProperty("SalesCalendarId")]
         public string SalesCalendarId { get; set; }
@@ -165,8 +179,8 @@ namespace SGSandbox.Models
         [JsonProperty("SegmentId")]
         public string SegmentId { get; set; }
 
-        [JsonProperty("SubSegmentId")]
-        public string SubSegmentId { get; set; }
+        [JsonProperty("SubsegmentId")]
+        public string SubsegmentId { get; set; }
 
         [JsonProperty("CompanyChainId")]
         public string CompanyChainId { get; set; }
@@ -177,71 +191,71 @@ namespace SGSandbox.Models
         [JsonProperty("PaymIdType")]
         public string PaymIdType { get; set; }
 
-        [JsonProperty("Eo_BreakAddition")]
-        public string EoBreakAddition { get; set; }
+        [JsonProperty("EO_BreakAddition")]
+        public string EOBreakAddition { get; set; }
 
-        [JsonProperty("Eo_PriorityCode")]
-        public string EoPriorityCode { get; set; }
+        [JsonProperty("EO_PriorityCode")]
+        public string EOPriorityCode { get; set; }
 
-        [JsonProperty("Eo_PriorityDlvTime")]
-        public string EoPriorityDlvTime { get; set; }
+        [JsonProperty("EO_PriorityDlvTime")]
+        public string EOPriorityDlvTime { get; set; }
 
-        [JsonProperty("Eo_EanLocationCust")]
-        public string EoEanLocationCust { get; set; }
+        [JsonProperty("EO_EANLocationCust")]
+        public string EOEANLocationCust { get; set; }
 
-        [JsonProperty("Eo_CustNoInChain")]
-        public string EoCustNoInChain { get; set; }
+        [JsonProperty("EO_CustNoInChain")]
+        public string EOCustNoInChain { get; set; }
 
-        [JsonProperty("Eo_InvoiceType")]
-        public string EoInvoiceType { get; set; }
+        [JsonProperty("EO_InvoiceType")]
+        public string EOInvoiceType { get; set; }
 
-        [JsonProperty("Eo_CustPurchaseOrder")]
-        public string EoCustPurchaseOrder { get; set; }
+        [JsonProperty("EO_CustPurchaseOrder")]
+        public string EOCustPurchaseOrder { get; set; }
 
-        [JsonProperty("Eo_CustRef")]
-        public string EoCustRef { get; set; }
+        [JsonProperty("EO_CustRef")]
+        public string EOCustRef { get; set; }
 
-        [JsonProperty("Eo_NoBreakage")]
-        public string EoNoBreakage { get; set; }
+        [JsonProperty("EO_NoBreakage")]
+        public string EONoBreakage { get; set; }
 
-        [JsonProperty("Eo_EanLocationUnb")]
-        public string EoEanLocationUnb { get; set; }
+        [JsonProperty("EO_EANLocationUNB")]
+        public string EOEANLocationUNB { get; set; }
 
-        [JsonProperty("Eo_EanLocationDp")]
-        public string EoEanLocationDp { get; set; }
+        [JsonProperty("EO_EANLocationDP")]
+        public string EOEANLocationDP { get; set; }
 
-        [JsonProperty("Eo_EdiCode")]
-        public string EoEdiCode { get; set; }
+        [JsonProperty("EO_EdiCode")]
+        public string EOEdiCode { get; set; }
 
-        [JsonProperty("Eo_MainChainId")]
-        public string EoMainChainId { get; set; }
+        [JsonProperty("EO_MainChainId")]
+        public string EOMainChainId { get; set; }
 
-        [JsonProperty("Eo_NetCommerce")]
-        public string EoNetCommerce { get; set; }
+        [JsonProperty("EO_NetCommerce")]
+        public string EONetCommerce { get; set; }
 
-        [JsonProperty("Eo_WebPct")]
-        public string EoWebPct { get; set; }
+        [JsonProperty("EO_WebPct")]
+        public string EOWebPct { get; set; }
 
-        [JsonProperty("Eo_ChainCustomer")]
-        public string EoChainCustomer { get; set; }
+        [JsonProperty("EO_ChainCustomer")]
+        public string EOChainCustomer { get; set; }
 
-        [JsonProperty("Eo_AssortmentOnlyCust")]
-        public string EoAssortmentOnlyCust { get; set; }
+        [JsonProperty("EO_AssortmentOnlyCust")]
+        public string EOAssortmentOnlyCust { get; set; }
 
-        [JsonProperty("Eo_InvoiceSumGrouping")]
-        public string EoInvoiceSumGrouping { get; set; }
+        [JsonProperty("EO_InvoiceSumGrouping")]
+        public string EOInvoiceSumGrouping { get; set; }
 
-        [JsonProperty("Eo_ModifiedDateSssortment")]
-        public string EoModifiedDateSssortment { get; set; }
+        [JsonProperty("EO_ModifiedDateAssortment")]
+        public string EOModifiedDateAssortment { get; set; }
 
-        [JsonProperty("Eo_CustomsTransitApproved")]
-        public string EoCustomsTransitApproved { get; set; }
+        [JsonProperty("EO_CustomsTransitApproved")]
+        public string EOCustomsTransitApproved { get; set; }
 
-        [JsonProperty("Eo_CrmExternalId")]
-        public string EoCrmExternalId { get; set; }
+        [JsonProperty("EO_CRMExternalId")]
+        public string EOCRMExternalId { get; set; }
 
-        [JsonProperty("Eo_ChainGroupId")]
-        public string EoChainGroupId { get; set; }
+        [JsonProperty("EO_ChainGroupId")]
+        public string EOChainGroupId { get; set; }
 
         [JsonProperty("ModifiedDateTime")]
         public string ModifiedDateTime { get; set; }
@@ -251,12 +265,39 @@ namespace SGSandbox.Models
 
         [JsonProperty("DataAreaId")]
         public string DataAreaId { get; set; }
+
+        [JsonProperty("Assortment")]
+        public Assortment[] Assortment { get; set; }
+
+        [JsonProperty("DlvMonday")]
+        public string DlvMonday { get; set; }
+
+        [JsonProperty("DlvTuesday")]
+        public string DlvTuesday { get; set; }
+
+        [JsonProperty("DlvWednesday")]
+        public string DlvWednesday { get; set; }
+
+        [JsonProperty("DlvThursday")]
+        public string DlvThursday { get; set; }
+
+        [JsonProperty("DlvFriday")]
+        public string DlvFriday { get; set; }
+
+        [JsonProperty("DlvSaturday")]
+        public string DlvSaturday { get; set; }
+
+        [JsonProperty("DlvSunday")]
+        public string DlvSunday { get; set; }
+
+        [JsonProperty("LicenceCodes")]
+        public LicenceCode[] LicenceCodes { get; set; }
     }
 
     public class CustomerCollection
     {
 
-        [JsonProperty("Customers")]
+        [JsonProperty("customers")]
         public Customer[] Customers { get; set; }
     }
 

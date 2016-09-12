@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="78649542-7a21-4dc4-98c6-ce8ad58e8fe0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://62.148.56.76/MicrosoftDynamicsAXAif50/itemservice.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="itemservice.xsd" MetadataType="Schema" ID="fabe9bf0-cdd8-4f86-a71e-e583287ed17d" SourceId="1" SourceUrl="http://ezone-sg-aos02.ezone.no/MicrosoftDynamicsAXAif50/itemservice.svc?xsd=xsd2" />
+    <MetadataFile FileName="itemservice1.xsd" MetadataType="Schema" ID="a07c25fb-01ae-41f5-9387-a1dc7081203d" SourceId="1" SourceUrl="http://ezone-sg-aos02.ezone.no/MicrosoftDynamicsAXAif50/itemservice.svc?xsd=xsd7" />
+    <MetadataFile FileName="ItemService.wsdl" MetadataType="Wsdl" ID="2c78a6e7-4eeb-4c85-a14b-b450ef5f585f" SourceId="1" SourceUrl="http://ezone-sg-aos02.ezone.no/MicrosoftDynamicsAXAif50/itemservice.svc?wsdl" />
+    <MetadataFile FileName="itemservice2.xsd" MetadataType="Schema" ID="e44fae0c-a063-4c07-99e0-dfc2d393a945" SourceId="1" SourceUrl="http://ezone-sg-aos02.ezone.no/MicrosoftDynamicsAXAif50/itemservice.svc?xsd=xsd5" />
+    <MetadataFile FileName="itemservice3.xsd" MetadataType="Schema" ID="cdfb3fb8-1c2b-4edc-a8cc-34c6392318ee" SourceId="1" SourceUrl="http://ezone-sg-aos02.ezone.no/MicrosoftDynamicsAXAif50/itemservice.svc?xsd=xsd0" />
+    <MetadataFile FileName="itemservice4.xsd" MetadataType="Schema" ID="864874d2-af0a-4b7c-8acf-ca5e000c6fb5" SourceId="1" SourceUrl="http://ezone-sg-aos02.ezone.no/MicrosoftDynamicsAXAif50/itemservice.svc?xsd=xsd3" />
+    <MetadataFile FileName="itemservice.disco" MetadataType="Disco" ID="b0577f7d-2b38-4981-ba11-fca077aeffa3" SourceId="1" SourceUrl="http://ezone-sg-aos02.ezone.no/MicrosoftDynamicsAXAif50/itemservice.svc?disco" />
+    <MetadataFile FileName="itemservice5.xsd" MetadataType="Schema" ID="9b293ace-34cf-4eb0-b29e-b2cdfa492529" SourceId="1" SourceUrl="http://ezone-sg-aos02.ezone.no/MicrosoftDynamicsAXAif50/itemservice.svc?xsd=xsd6" />
+    <MetadataFile FileName="itemservice6.xsd" MetadataType="Schema" ID="5880c98b-ada1-4f27-adbb-adfa98dd502d" SourceId="1" SourceUrl="http://ezone-sg-aos02.ezone.no/MicrosoftDynamicsAXAif50/itemservice.svc?xsd=xsd1" />
+    <MetadataFile FileName="itemservice7.xsd" MetadataType="Schema" ID="eb860e1f-e05e-4f2c-82ec-312976c37064" SourceId="1" SourceUrl="http://ezone-sg-aos02.ezone.no/MicrosoftDynamicsAXAif50/itemservice.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

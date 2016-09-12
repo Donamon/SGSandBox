@@ -1,4 +1,5 @@
 ﻿@using SGSandbox.Models
+@using SGSandbox.Models.Customer
 @*@model SGSandbox.Models.AssortmentCollection*@
 
 @{
@@ -18,7 +19,7 @@
 }
 
 
-<hr/>
+<hr />
 
 <h2>Customers</h2>
 @foreach (var customer in customers.Customers)
@@ -28,23 +29,30 @@
         <div>Fradato: @customer.Name</div>
         <div>Sortiment:</div>
         <ol>
-            @foreach (var sortiment in customer.Assortment)
+
+            @if (customer.Assortment != null)
             {
-                <li>@sortiment</li>
+                foreach (var sortiment in customer.Assortment)
+                {
+                    <li>@sortiment.AssortmentId</li>
+                }
             }
         </ol>
 
         <div>Lisens:</div>
         <ol>
-            @foreach (var licenseCode in customer.LicenseCode)
+            @if (customer.LicenceCodes != null)
             {
-                <li>@licenseCode</li>
+                foreach (var licenseCode in customer.LicenceCodes)
+                {
+                    <li>@licenseCode.LicenseCode</li>
+                }
             }
         </ol>
     </div>
 }
 
-<hr/>
+<hr />
 
 <h2>Main chains</h2>
 @foreach (var mainchain in mainchains.MainChains)
